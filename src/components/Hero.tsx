@@ -24,8 +24,16 @@ const Hero = () => {
     },
   }
 
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id)
+    if (!el) return false
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    return true
+  }
+
   const handleContactClick = () => {
-    window.location.href = 'mailto:yanuar.alfian@example.com'
+    const didScroll = scrollToSection('contact')
+    if (!didScroll) window.location.href = 'mailto:yanuar.alfian@example.com'
   }
 
   const handleDownloadCV = () => {
@@ -34,6 +42,7 @@ const Hero = () => {
 
   return (
     <section
+      id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
       aria-label="Hero section"
     >
@@ -190,17 +199,20 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
         >
-          <motion.div
+          <motion.button
+            type="button"
+            onClick={() => scrollToSection('contact')}
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="inline-block"
+            className="inline-flex items-center justify-center rounded-full p-2 text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-slate-900"
+            aria-label="Scroll to contact section"
           >
             <svg
-              className="w-6 h-6 text-gray-400"
+              className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              aria-label="Scroll down"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -209,7 +221,7 @@ const Hero = () => {
                 d="M19 14l-7 7m0 0l-7-7m7 7V3"
               />
             </svg>
-          </motion.div>
+          </motion.button>
         </motion.div>
       </motion.div>
     </section>
