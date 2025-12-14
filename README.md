@@ -1,48 +1,55 @@
-# Portfolio
+# Portfolio - Yanuar Nur Alfian
 
-A modern, minimal portfolio built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
+Personal portfolio website for Yanuar Nur Alfian, Teknik Informatika Semester 7.
 
 ## Features
 
-- **Framework**: Next.js 15 (App Router)
-- **Styling**: Tailwind CSS v4
-- **Animation**: Framer Motion
-- **Icons**: Lucide React
-- **Typography**: Geist Sans & Mono
-- **Responsive Design**: Mobile-first approach
+- ✨ Smooth entrance animations with Framer Motion
+- 📱 Fully responsive design (mobile, tablet, desktop)
+- ♿ Accessibility-compliant
+- 🎨 Modern gradient design with animated background
+- 🚀 Built with React, TypeScript, and Tailwind CSS
 
 ## Getting Started
 
-First, install the dependencies:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
 
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
 ```
 
-Then, run the development server:
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build
 
-## Project Structure
+```bash
+npm run build
+```
 
-- `src/app`: Application routes and layouts.
-- `src/components`: Reusable UI components.
-- `src/lib`: Utility functions.
+### Preview
 
-## Customization
+```bash
+npm run preview
+```
 
-- **Colors**: Edit `src/app/globals.css` to change CSS variables.
-- **Metadata**: Edit `src/app/layout.tsx` to update site title and description.
-- **Content**: Edit `src/app/page.tsx` to update the homepage content.
+## Tech Stack
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- ESLint
+
+## License
+
+MIT
