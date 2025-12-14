@@ -78,17 +78,25 @@ const FilterButton = ({
   onClick: () => void
   children: ReactNode
 }) => (
-  <button
+  <motion.button
     type="button"
     onClick={onClick}
-    className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400/60 ${
+    className={`relative overflow-hidden rounded-full px-5 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400/60 ${
       active
-        ? 'bg-white text-black'
+        ? 'text-black'
         : 'border border-white/15 bg-white/5 text-slate-200 hover:border-white/25 hover:bg-white/10'
     }`}
   >
-    {children}
-  </button>
+    {active && (
+      <motion.span
+        layoutId="activeProjectFilter"
+        className="absolute inset-0 rounded-full bg-white"
+        transition={{ duration: 0.25 }}
+        aria-hidden="true"
+      />
+    )}
+    <span className="relative">{children}</span>
+  </motion.button>
 )
 
 const linkClassName =
@@ -103,7 +111,7 @@ export default function Projects() {
   )
 
   return (
-    <section id="projects" className="relative border-t border-white/10 bg-[#0b0b0b] py-20 sm:py-24">
+    <section id="projects" className="relative border-t border-white/10 py-20 sm:py-24">
       <div className="pointer-events-none absolute inset-0 opacity-25" aria-hidden="true">
         <div className="absolute inset-0 grain-overlay" />
       </div>
@@ -111,12 +119,12 @@ export default function Projects() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">Work</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">Karya</p>
             <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight text-white sm:text-5xl">
-              Selected projects
+              Proyek pilihan
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-              A snapshot of experiments and builds — spanning games, real-time cinematics, and tools.
+              Potongan karya dan eksperimen — mulai dari game, cinematic real-time, sampai tooling.
             </p>
           </div>
 
@@ -127,7 +135,7 @@ export default function Projects() {
                 active={filter === category}
                 onClick={() => setFilter(category)}
               >
-                {category === 'All' ? 'All' : category}
+                {category === 'All' ? 'Semua' : category === 'Cinematic' ? 'Sinema' : 'Game'}
               </FilterButton>
             ))}
           </div>
@@ -151,7 +159,7 @@ export default function Projects() {
                 <article className="grid gap-8 p-7 sm:p-10 md:grid-cols-12">
                   <div className="md:col-span-7">
                     <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
-                      {project.category}
+                      {project.category === 'Cinematic' ? 'Sinema' : 'Game'}
                     </p>
                     <h3 className="mt-3 font-display text-2xl tracking-tight text-white sm:text-3xl">
                       {project.title}
@@ -176,7 +184,7 @@ export default function Projects() {
                     <dl className="space-y-6">
                       <div>
                         <dt className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
-                          Role
+                          Peran
                         </dt>
                         <dd className="mt-2 text-base font-semibold text-white">{project.role}</dd>
                       </div>
@@ -184,7 +192,7 @@ export default function Projects() {
                       {project.links && (
                         <div>
                           <dt className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
-                            Links
+                            Tautan
                           </dt>
                           <dd className="mt-3 flex flex-wrap gap-3">
                             {project.links.demo && (
@@ -194,7 +202,7 @@ export default function Projects() {
                                 target="_blank"
                                 rel="noreferrer"
                               >
-                                Live demo
+                                Demo
                               </a>
                             )}
                             {project.links.repo && (
@@ -214,7 +222,7 @@ export default function Projects() {
                                 target="_blank"
                                 rel="noreferrer"
                               >
-                                Watch video
+                                Video
                               </a>
                             )}
                           </dd>

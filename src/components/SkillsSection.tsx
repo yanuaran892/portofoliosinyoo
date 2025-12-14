@@ -123,7 +123,7 @@ const SkillsSection = () => {
   return (
     <motion.section
       id="skills"
-      className="relative overflow-hidden border-t border-white/10 bg-[#0b0b0b] py-20 sm:py-24"
+      className="relative overflow-hidden border-t border-white/10 py-20 sm:py-24"
       aria-label="Skills section"
       variants={containerVariants}
       initial="hidden"
@@ -136,13 +136,13 @@ const SkillsSection = () => {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.header variants={cardVariants} className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">Skills</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">Skill</p>
           <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight text-white sm:text-5xl">
-            Capabilities & tools
+            Kapabilitas & tools
           </h2>
           <p className="mt-6 text-base sm:text-lg text-slate-300 text-balance">
-            A focused overview of the tools I use most — grouped to highlight breadth across web
-            development, Unreal Engine, and real-time cinematic workflows.
+            Ringkasan tool yang paling sering saya pakai — dikelompokkan untuk menunjukkan jangkauan
+            di web development, Unreal Engine, dan workflow cinematic real-time.
           </p>
         </motion.header>
 
