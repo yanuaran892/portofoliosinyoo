@@ -123,30 +123,26 @@ const SkillsSection = () => {
   return (
     <motion.section
       id="skills"
-      className="relative overflow-hidden bg-slate-950 py-16 sm:py-20"
+      className="relative overflow-hidden border-t border-white/10 bg-[#0b0b0b] py-20 sm:py-24"
       aria-label="Skills section"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: `radial-gradient(circle at 15% 40%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
-                            radial-gradient(circle at 85% 60%, rgba(168, 85, 247, 0.22) 0%, transparent 50%)`,
-        }}
-        aria-hidden="true"
-      />
+      <div className="pointer-events-none absolute inset-0 opacity-25" aria-hidden="true">
+        <div className="absolute inset-0 grain-overlay" />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.header variants={cardVariants} className="max-w-3xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Skills & Capabilities
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">Skills</p>
+          <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight text-white sm:text-5xl">
+            Capabilities & tools
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 text-balance">
-            A focused overview of the tools I use most — grouped to show breadth across software
-            engineering, Unreal Engine development, and cinematic creation.
+          <p className="mt-6 text-base sm:text-lg text-slate-300 text-balance">
+            A focused overview of the tools I use most — grouped to highlight breadth across web
+            development, Unreal Engine, and real-time cinematic workflows.
           </p>
         </motion.header>
 
