@@ -1,4 +1,5 @@
 import About from './components/About'
+import AmbientBackground from './components/AmbientBackground'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
@@ -8,7 +9,8 @@ import SkillsSection from './components/SkillsSection'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0b0b0b]">
+    <div className="relative min-h-screen">
+      <AmbientBackground />
       <SiteHeader />
       <main id="content">
         <Hero />
